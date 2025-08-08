@@ -6,13 +6,13 @@ WORKDIR /app
 
 # Copier les fichiers go.mod et go.sum (si existe)
 COPY go.mod ./
-COPY go.su[m] ./
+COPY go.sum ./
 
 # Télécharger les dépendances
 RUN go mod download
 
 # Copier le code source
-COPY main.go ./
+COPY . .
 
 # Compiler l'application pour l'architecture AMD64
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o ip-scanner .

@@ -25,15 +25,15 @@ help:
 
 # Compilation locale
 build:
-	go build -o $(BINARY_NAME) main.go
+	go build -o $(BINARY_NAME) ./
 
 # Compilation pour Linux AMD64
 build-linux:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o $(LINUX_BINARY) main.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o $(LINUX_BINARY) ./
 
 # Lancer localement
 run:
-	go run main.go
+	go run ./
 
 # Tests
 test:
